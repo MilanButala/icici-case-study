@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ICICI Bank Website — AEM Frontend Development Case Study</title>
+  <meta name="description"
+    content="Senior AEM Frontend Developer case study for the ICICI Bank website: HTML5, SCSS, JavaScript/jQuery/React, HTL/Sightly and Clientlibs across a component-driven banking platform.">
+  <meta property="og:title" content="ICICI Bank Website — AEM Frontend Case Study">
+  <meta property="og:description"
+    content="Component-driven, responsive frontend engineering on Adobe Experience Manager for a large banking platform.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&family=Sora:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="bar" id="bar"></div>
+
+  <!-- TOP FLOATING NAVIGATION (Exact Original Orange Gradient) -->
+  <nav>
+    <div class="wrap">
+      <a href="#" class="brand">
+        <img class="logo" src="assets/icici-logo.png"
+          onerror="this.onerror=null;this.src='/__l5e/assets-v1/a4c3f5f4-c3dd-4e5a-9392-59aa329375e0/icici-logo.png'"
+          alt="ICICI Bank logo">
+        <span class="bsep"></span>
+        <span class="brand-sub">AEM Case Study</span>
+      </a>
+
+      <div class="nav-right">
+        <div class="nav-status">
+          <span class="pulse-live"></span>
+          <span>AEM 6.5+ &amp; Cloud</span>
+        </div>
+        <a href="#summary" class="nav-cta">⚡ Explore</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CREATIVE HERO SECTION (Signature ICICI Gradient & Aesthetics) -->
+  <header class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="grid-bg"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+
+    <div class="wrap" style="position:relative;width:100%">
+      <div class="hero-grid">
+        <!-- Left Column -->
+        <div class="hero-col-left">
+          <span class="eyebrow"><span class="dot"></span> Professional Portfolio · Interview Case Study</span>
+          <h1>ICICI Bank Website<br><span class="g">AEM Frontend</span> Development</h1>
+          <p class="sub">Turning banking complexity into reusable web experiences — semantic HTML5, SCSS-driven
+            responsive styling, JavaScript/jQuery interactions and clean AEM HTL &amp; Clientlib integration across a
+            large content ecosystem.</p>
+
+          <div class="pills">
+            <span class="pill">🏷️ HTML5</span>
+            <span class="pill">🎨 SCSS / CSS3</span>
+            <span class="pill">⚡ JavaScript ES6+</span>
+            <span class="pill">🧩 jQuery</span>
+            <span class="pill">⚛️ React</span>
+            <span class="pill">📦 HTL / Sightly</span>
+            <span class="pill">🎛️ Clientlibs</span>
+            <span class="pill">♿ Accessibility</span>
+          </div>
+
+          <div class="hero-btn-row">
+            <a href="#summary" class="btn-primary">
+              <span>Explore Technical Case Study</span>
+              <span>↓</span>
+            </a>
+            <a href="#components" class="btn-secondary">
+              <span>⚡ Component Library</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive AEM Workbench in Signature Palette -->
+        <div class="hero-col-right">
+          <div class="workbench">
+            <div class="wb-topbar">
+              <div class="wb-mac-dots">
+                <span class="wb-mac-dot d-red"></span>
+                <span class="wb-mac-dot d-yellow"></span>
+                <span class="wb-mac-dot d-green"></span>
+              </div>
+              <div class="wb-file-path">icici/components/banking-card</div>
+              <span class="wb-badge-author">Touch UI</span>
+            </div>
+
+            <!-- Workbench Tabs -->
+            <div class="wb-tab-bar">
+              <button class="wb-t-btn active" data-wb="preview">✨ Live Component</button>
+              <button class="wb-t-btn" data-wb="htl">📜 HTL (Sightly)</button>
+              <button class="wb-t-btn" data-wb="scss">🎨 SCSS Tokens</button>
+              <button class="wb-t-btn" data-wb="dialog">⚙️ cq:dialog</button>
+            </div>
+
+            <!-- Tab Content Views -->
+            <div class="wb-view">
+              <!-- Pane 1: Live Interactive Component -->
+              <div class="wb-pane active" id="wb-pane-preview">
+                <div class="wb-bank-card">
+                  <div class="wb-card-header">
+                    <div>
+                      <div class="wb-card-lbl">Sapphiro Credit / Pre-Approved</div>
+                      <div class="wb-card-amount">
+                        <span id="hero-card-bal">₹ 4,50,000</span>
+                        <button class="btn-toggle-eye" id="hero-eye-btn" title="Toggle Balance Mask">👁️</button>
+                      </div>
+                    </div>
+                    <span class="wb-card-type">AEM Component</span>
+                  </div>
+
+                  <div class="wb-calc-box">
+                    <div class="wb-calc-head">
+                      <span>Instant EMI Calculator Widget</span>
+                      <strong id="hero-slider-disp">₹ 50,000</strong>
+                    </div>
+                    <input type="range" min="10000" max="200000" step="5000" value="50000" class="wb-range-slider"
+                      id="hero-emi-slider">
+                    <div class="wb-calc-row">
+                      <span>Monthly EMI @ 10.5%:</span>
+                      <strong id="hero-emi-amt">₹ 4,409 / mo</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pane 2: HTL Template -->
+              <div class="wb-pane" id="wb-pane-htl">
+                <pre class="code-box"><code><span class="c-cm">&lt;!-- Sightly HTL Template --&gt;</span>
+<span class="c-kw">&lt;div</span> <span class="c-tag">data-sly-use.model</span>=<span class="c-str">"com.icici.core.CardModel"</span>
+     <span class="c-tag">class</span>=<span class="c-str">"cmp-banking-card"</span><span class="c-kw">&gt;</span>
+  <span class="c-kw">&lt;h3</span> <span class="c-tag">class</span>=<span class="c-str">"cmp-banking-card__title"</span><span class="c-kw">&gt;</span>
+    <span class="c-str">${model.cardTitle}</span>
+  <span class="c-kw">&lt;/h3&gt;</span>
+  <span class="c-kw">&lt;sly</span> <span class="c-tag">data-sly-test</span>=<span class="c-str">"${model.showCalculator}"</span><span class="c-kw">&gt;</span>
+    <span class="c-kw">&lt;sly</span> <span class="c-tag">data-sly-resource</span>=<span class="c-str">"${'calc' @ resourceType='icici/calc'}"</span><span class="c-kw">/&gt;</span>
+  <span class="c-kw">&lt;/sly&gt;</span>
+<span class="c-kw">&lt;/div&gt;</span></code></pre>
+              </div>
+
+              <!-- Pane 3: SCSS Architecture -->
+              <div class="wb-pane" id="wb-pane-scss">
+                <pre class="code-box"><code><span class="c-cm">// Modular BEM SCSS</span>
+.cmp-banking-card {
+  background: var(--grad);
+  border-radius: 16px;
+  padding: 24px;
+
+  &amp;__title {
+    font-family: Sora, sans-serif;
+    color: #fff;
+  }
+}</code></pre>
+              </div>
+
+              <!-- Pane 4: Dialog XML -->
+              <div class="wb-pane" id="wb-pane-dialog">
+                <pre
+                  class="code-box"><code><span class="c-cm">&lt;!-- Touch UI cq:dialog XML --&gt;</span>
+<span class="c-kw">&lt;cardTitle</span>
+  <span class="c-tag">jcr:primaryType</span>=<span class="c-str">"nt:unstructured"</span>
+  <span class="c-tag">sling:resourceType</span>=<span class="c-str">"granite/.../textfield"</span>
+  <span class="c-tag">fieldLabel</span>=<span class="c-str">"Card Display Title"</span>
+  <span class="c-tag">required</span>=<span class="c-str">"{Boolean}true"</span><span class="c-kw">/&gt;</span></code></pre>
+              </div>
+            </div>
+
+            <div class="wb-statusbar">
+              <span>⚡ 100% Core Component Extension</span>
+              <span>⏱️ 0.8s Sub-Second TTFB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Meta Matrix (Preserving Exact Original 4-Column Card Style) -->
+      <div class="meta-grid-hero">
+        <div>
+          <span>Role</span>
+          <strong>Senior AEM Frontend Developer</strong>
+          <p>Enterprise Component Engineering</p>
+        </div>
+        <div>
+          <span>Platform</span>
+          <strong>Adobe Experience Manager</strong>
+          <p>AEM 6.5+ &amp; Cloud Service</p>
+        </div>
+        <div>
+          <span>Delivery</span>
+          <strong>60+ Reusable Modules</strong>
+          <p>HTL, SCSS &amp; Clientlibs</p>
+        </div>
+        <div>
+          <span>Standard</span>
+          <strong>WCAG 2.1 AA Compliant</strong>
+          <p>Accessible &amp; High-Fidelity</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="summary">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">01</div>
+          <p class="lead">Executive Summary</p>
+          <h2>Scalable enough for scale,<br>simple enough to author</h2>
+        </div>
+        <p class="desc">Deliver reliable banking web experiences while keeping the frontend scalable for a large content
+          ecosystem — and simple enough for content authors to manage inside AEM.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="context" class="sec-alt">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">02</div>
+          <p class="lead">Business Context &amp; Objectives</p>
+          <h2>Many journeys,<br>shared patterns, different rules</h2>
+        </div>
+        <p class="desc">Product discovery, financial information, campaigns, calculators, forms, navigation, support
+          content and lead generation — journeys that share visual patterns but differ in content, business rules and
+          authoring needs.</p>
+      </div>
+      <div class="cards">
+        <div class="card rv">
+          <div class="idx">01</div>
+          <h3>Responsive interfaces</h3>
+          <p>Consistent layouts across desktop, tablet and mobile breakpoints.</p>
+        </div>
+        <div class="card rv">
+          <div class="idx">02</div>
+          <h3>Reusable UI patterns</h3>
+          <p>Shared patterns to eliminate duplicated frontend code.</p>
+        </div>
+        <div class="card rv">
+          <div class="idx">03</div>
+          <h3>Clean AEM integration</h3>
+          <p>Markup mapped cleanly into HTL and authorable components.</p>
+        </div>
+        <div class="card rv">
+          <div class="idx">04</div>
+          <h3>Maintainable SCSS</h3>
+          <p>Shared variables, mixins and predictable architecture.</p>
+        </div>
+        <div class="card rv">
+          <div class="idx">05</div>
+          <h3>Interactive behavior</h3>
+          <p>Menus, tabs, accordions, carousels and form validation.</p>
+        </div>
+        <div class="card rv">
+          <div class="idx">06</div>
+          <h3>Accessible interactions</h3>
+          <p>Semantic, keyboard-friendly, ARIA-aware components.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="criteria">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">03</div>
+          <p class="lead">Success Criteria</p>
+          <h2>How success was measured</h2>
+        </div>
+        <p class="desc">The dimensions used to judge whether a component was actually production-ready.</p>
+      </div>
+      <div class="cards">
+        <div class="card rv">
+          <h3>Usability</h3>
+          <p>Clear navigation and consistent interaction patterns.</p>
+        </div>
+        <div class="card rv">
+          <h3>Authoring</h3>
+          <p>Content managed without repeated developer changes.</p>
+        </div>
+        <div class="card rv">
+          <h3>Performance</h3>
+          <p>Avoid unnecessary scripts/assets; optimize component behavior.</p>
+        </div>
+        <div class="card rv">
+          <h3>Quality</h3>
+          <p>Stable cross-browser behavior and reduced UI regressions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="arch" class="sec-alt">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">04</div>
+          <p class="lead">Technical Architecture</p>
+          <h2>Layered architecture,<br>end to end</h2>
+        </div>
+        <p class="desc">Each layer owns one concern — presentation, integration, delivery, content and quality.</p>
+      </div>
+      <div class="stack">
+        <div class="layer rv"><b>Presentation</b><span>Responsive HTML5 + SCSS + JavaScript / jQuery / React</span>
+        </div>
+        <div class="layer rv"><b>AEM Integration</b><span>HTL / Sightly templates, component markup, dialogs</span>
+        </div>
+        <div class="layer rv"><b>Asset Delivery</b><span>AEM Clientlibs for CSS/JS organization &amp; delivery</span>
+        </div>
+        <div class="layer rv"><b>Content Layer</b><span>AEM-authored component content and page structures</span></div>
+        <div class="layer rv"><b>Quality Layer</b><span>Responsive testing, browser validation, accessibility, QA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="components">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">05</div>
+          <p class="lead">AEM Component Development</p>
+          <h2>Every component treated<br>as a reusable product</h2>
+        </div>
+        <p class="desc">An eight-stage pipeline from requirement to refinement, repeated for every module in the
+          library.</p>
+      </div>
+      <div class="flow rv">
+        <div class="step"><em>01</em>Requirement analysis</div>
+        <div class="step"><em>02</em>UI analysis</div>
+        <div class="step"><em>03</em>HTML / HTL structure</div>
+        <div class="step"><em>04</em>SCSS implementation</div>
+        <div class="step"><em>05</em>Interaction (JS)</div>
+        <div class="step"><em>06</em>Dialog integration</div>
+        <div class="step"><em>07</em>Clientlib integration</div>
+        <div class="step"><em>08</em>QA &amp; refinement</div>
+      </div>
+      <div style="height:34px"></div>
+      <div class="ticks">
+        <div class="tick rv"><i>✓</i> Global header, navigation &amp; mega-menu</div>
+        <div class="tick rv"><i>✓</i> Hero / banner &amp; promotional modules</div>
+        <div class="tick rv"><i>✓</i> Product cards &amp; content cards</div>
+        <div class="tick rv"><i>✓</i> Tabs, accordions &amp; expandable content</div>
+        <div class="tick rv"><i>✓</i> Carousel / slider components</div>
+        <div class="tick rv"><i>✓</i> Forms &amp; validation UI</div>
+        <div class="tick rv"><i>✓</i> Breadcrumb &amp; footer components</div>
+        <div class="tick rv"><i>✓</i> Campaign &amp; offer modules</div>
+        <div class="tick rv"><i>✓</i> Financial calculators &amp; widgets</div>
+        <div class="tick rv"><i>✓</i> Reusable content / listing patterns</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="aemtech" class="sec-alt">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">06</div>
+          <p class="lead">AEM Tech Stack</p>
+          <h2>Components, dialogs,<br>templates &amp; clientlibs</h2>
+        </div>
+        <p class="desc">The four AEM building blocks used daily — how markup, authoring, page structure and asset
+          delivery fit together.</p>
+      </div>
+      <div class="aemgrid">
+        <div class="aem rv">
+          <div class="ic">01</div>
+          <p class="kicker">Components</p>
+          <h3>HTL / Sightly components</h3>
+          <ul>
+            <li>Server-side <code>HTL</code> markup with Sling Models / <code>data-sly-use</code></li>
+            <li><code>data-sly-list</code>, <code>data-sly-test</code>, <code>data-sly-resource</code> patterns</li>
+            <li>Proxy components inheriting Core Components</li>
+            <li>BEM-based SCSS scoped per component</li>
+          </ul>
+        </div>
+        <div class="aem rv">
+          <div class="ic">02</div>
+          <p class="kicker">Dialogs</p>
+          <h3>Touch UI authoring dialogs</h3>
+          <ul>
+            <li>Granite / Coral UI dialogs built in <code>cq:dialog</code></li>
+            <li>Fields: textfield, RTE, pathfield, image, multifield</li>
+            <li>Tabbed dialogs with show/hide field logic</li>
+            <li>Design dialogs (<code>cq:design_dialog</code>) for policy-level settings</li>
+          </ul>
+        </div>
+        <div class="aem rv">
+          <div class="ic">03</div>
+          <p class="kicker">Templates</p>
+          <h3>Editable templates &amp; policies</h3>
+          <ul>
+            <li>Editable templates with structure, initial &amp; layout containers</li>
+            <li>Policies controlling allowed components per container</li>
+            <li>Page components extending a shared base page</li>
+            <li>Responsive grid &amp; locked structure for brand consistency</li>
+          </ul>
+        </div>
+        <div class="aem rv">
+          <div class="ic">04</div>
+          <p class="kicker">Clientlibs</p>
+          <h3>CSS / JS delivery</h3>
+          <ul>
+            <li><code>cq:ClientLibraryFolder</code> with categories &amp; dependencies</li>
+            <li><code>css.txt</code> / <code>js.txt</code> ordering, embed for bundling</li>
+            <li>Site-wide vs component-level libs to cut payload</li>
+            <li>Minification, cache-busting and clientlib debugging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="engineering">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">07</div>
+          <p class="lead">Frontend Engineering Approach</p>
+          <h2>SCSS discipline meets<br>defensive JavaScript</h2>
+        </div>
+      </div>
+      <div class="split">
+        <div class="card rv">
+          <h3>SCSS / CSS Strategy</h3>
+          <p>› Component-oriented styles, isolated &amp; predictable<br>› Breakpoints based on design requirements<br>›
+            Reusable spacing, typography &amp; layout patterns<br>› Focused selectors to reduce specificity
+            conflicts<br>› Validated active, disabled, expanded, loading, error states</p>
+        </div>
+        <div class="card rv">
+          <h3>JavaScript / jQuery Strategy</h3>
+          <p>› Initialize behavior only for components present on page<br>› Event delegation to reduce unnecessary
+            handlers<br>› Reusable utilities kept separate from component logic<br>› Handle dynamic states: menus, tabs,
+            accordions, sliders, forms<br>› Defensive checks for optional DOM elements</p>
+        </div>
+      </div>
+      <div style="height:18px"></div>
+      <div class="cards">
+        <div class="card rv">
+          <div class="idx">🖥</div>
+          <h3>Desktop</h3>
+          <p>Full navigation / mega-menu, multi-column card layouts.</p>
+        </div>
+        <div class="card rv">
+          <div class="idx">▣</div>
+          <h3>Tablet</h3>
+          <p>Condensed navigation, reduced column counts.</p>
+        </div>
+        <div class="card rv">
+          <div class="idx">▯</div>
+          <h3>Mobile</h3>
+          <p>Menu drawer, single-column stacking, swipe-friendly modules.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="challenges" class="sec-alt">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">08</div>
+          <p class="lead">Key Challenges &amp; Solutions</p>
+          <h2>Problems encountered,<br>and how they were solved</h2>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="chall"><b>Large component ecosystem</b>
+          <p>Reusable component patterns &amp; shared styles to reduce duplication.</p>
+        </div>
+        <div class="chall"><b>Responsive complexity</b>
+          <p>Mobile-first layouts, flexible grids and breakpoint-specific rules.</p>
+        </div>
+        <div class="chall"><b>AEM authoring flexibility</b>
+          <p>Component dialogs &amp; HTL structures so authors control content safely.</p>
+        </div>
+        <div class="chall"><b>Clientlib organization</b>
+          <p>Separated and organized CSS/JS dependencies for predictable loading.</p>
+        </div>
+        <div class="chall"><b>Interactive components</b>
+          <p>Controlled initialization and state transitions for sliders, tabs, menus.</p>
+        </div>
+        <div class="chall"><b>Cross-browser behavior</b>
+          <p>Tested common scenarios; handled inconsistent DOM/CSS behavior.</p>
+        </div>
+        <div class="chall" style="border-bottom:none"><b>Accessibility</b>
+          <p>Semantic elements, focus management, keyboard interaction and ARIA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collab">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">09</div>
+          <p class="lead">Collaboration &amp; Delivery</p>
+          <h2>Working across design,<br>AEM, QA and business</h2>
+        </div>
+      </div>
+      <div class="flow rv">
+        <div class="step"><em>01</em>Requirement</div>
+        <div class="step"><em>02</em>Design analysis</div>
+        <div class="step"><em>03</em>Frontend impl.</div>
+        <div class="step"><em>04</em>AEM integration</div>
+        <div class="step"><em>05</em>Local validation</div>
+        <div class="step"><em>06</em>Code review</div>
+        <div class="step"><em>07</em>QA</div>
+        <div class="step"><em>08</em>Release</div>
+      </div>
+      <div style="height:34px"></div>
+      <div class="split">
+        <div>
+          <div class="cards" style="grid-template-columns:1fr">
+            <div class="card rv">
+              <h3>UX / UI Design</h3>
+              <p>Clarify responsive behavior, states and visual specs.</p>
+            </div>
+            <div class="card rv">
+              <h3>AEM / Backend</h3>
+              <p>Component structure, HTL data mapping and dialogs.</p>
+            </div>
+            <div class="card rv">
+              <h3>QA</h3>
+              <p>Reproduce defects, validate fixes, regression testing.</p>
+            </div>
+            <div class="card rv">
+              <h3>Product / Business</h3>
+              <p>Clarify content behavior, journeys and acceptance criteria.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card rv">
+          <h3>My Responsibilities</h3>
+          <p>› Frontend UI development &amp; maintenance<br>› Responsive HTML/SCSS implementation<br>› AEM HTL/Sightly
+            integration<br>› JS / jQuery / React interactions &amp; utilities<br>› Clientlib CSS/JS troubleshooting<br>›
+            Defect investigation &amp; fixes<br>› Code reviews &amp; standards<br>› Mentoring junior developers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="outcomes" class="sec-alt">
+    <div class="wrap">
+      <div class="sec-h rv">
+        <div>
+          <div class="num">10</div>
+          <p class="lead">Outcomes, Skills &amp; Lessons</p>
+          <h2>What the project<br>delivered and taught</h2>
+        </div>
+      </div>
+      <div class="split">
+        <div class="rv" id="skills">
+          <div class="skill">
+            <div class="top"><span>HTML5 / Semantic UI</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="96%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>CSS3 / SCSS / SASS</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="95%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>JavaScript / ES6+</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="90%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>jQuery</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="92%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>AEM Frontend</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="93%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>HTL / Sightly</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="90%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>AEM Clientlibs</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="88%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>Responsive UI</span><span class="tag">Strong</span></div>
+            <div class="track">
+              <div class="fill" data-w="94%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>Accessibility</span><span class="tag">Applied</span></div>
+            <div class="track">
+              <div class="fill" data-w="75%"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="top"><span>React</span><span class="tag">Applicable</span></div>
+            <div class="track">
+              <div class="fill" data-w="72%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card rv">
+          <h3>Key lessons learned</h3>
+          <p>› Reusable components reduce both build effort and long-term maintenance cost.<br><br>› AEM frontend work
+            requires equal attention to UI quality and authoring behavior.<br><br>› Responsive behavior should be
+            designed at component level, not bolted on last.<br><br>› Good clientlib structure prevents avoidable CSS/JS
+            integration problems.<br><br>› Debugging is faster when UI, HTL, clientlibs and browser behavior are
+            isolated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="cta rv">
+        <div class="num" style="-webkit-text-stroke-color:rgba(255,255,255,.7)">10</div>
+        <h2>Conclusion &amp; Portfolio Summary</h2>
+        <p>As Senior AEM Frontend Developer, the focus was turning business and design requirements into
+          production-ready interfaces — maintaining component reusability, responsive behavior, accessibility and clean
+          AEM integration across the full frontend-to-CMS delivery lifecycle.</p>
+        <div class="pills" style="margin-top:26px">
+          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff">AEM
+            enterprise website development</span>
+          <span class="pill"
+            style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff">Component-driven
+            architecture</span>
+          <span class="pill"
+            style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff">Mobile-first UI</span>
+          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff">HTL
+            &amp; Clientlibs</span>
+          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff">SCSS
+            architecture</span>
+          <span class="pill" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff">React
+            component development</span>
+          <span class="pill"
+            style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff">Debugging &amp;
+            mentoring</span>
+        </div>
+      </div>
+      <div class="note rv"><strong style="color:var(--maroon)">Confidentiality &amp; usage —</strong> This document is
+        written as a professional case study and describes development practices and responsibilities at a high level.
+        It excludes confidential data, credentials, internal URLs, proprietary source code and non-public business
+        information.</div>
+      <p style="margin-top:28px;opacity:.6">ICICI Bank Website · AEM Frontend Development Case Study</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Progress Bar
+    const bar = document.getElementById('bar');
+    addEventListener('scroll', () => {
+      const h = document.documentElement;
+      bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+    }, { passive: true });
+
+    // Scroll Reveal Animations
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.rv').forEach((el, i) => {
+      el.style.transitionDelay = (i % 6 * 60) + 'ms';
+      io.observe(el);
+    });
+
+    // Skill Progress Bars
+    const so = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.fill').forEach((f, i) => setTimeout(() => f.style.width = f.dataset.w, i * 90));
+        so.unobserve(e.target);
+      }
+    }), { threshold: 0.3 });
+    const sk = document.getElementById('skills');
+    if (sk) so.observe(sk);
+
+    // Interactive Hero Workbench Tab Switcher
+    document.querySelectorAll('.wb-t-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.wb-t-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.wb-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const target = document.getElementById('wb-pane-' + btn.dataset.wb);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // Interactive Banking Widget Slider Logic
+    const heroSlider = document.getElementById('hero-emi-slider');
+    const heroSliderDisp = document.getElementById('hero-slider-disp');
+    const heroEmiAmt = document.getElementById('hero-emi-amt');
+    if (heroSlider && heroSliderDisp && heroEmiAmt) {
+      heroSlider.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        heroSliderDisp.textContent = '₹ ' + val.toLocaleString('en-IN');
+        const r = 0.105 / 12;
+        const n = 12;
+        const emi = Math.round((val * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+        heroEmiAmt.textContent = '₹ ' + emi.toLocaleString('en-IN') + ' / mo';
+      });
+    }
+
+    // Balance Privacy Eye Toggle
+    const heroEyeBtn = document.getElementById('hero-eye-btn');
+    const heroCardBal = document.getElementById('hero-card-bal');
+    let isBalHidden = false;
+    if (heroEyeBtn && heroCardBal) {
+      heroEyeBtn.addEventListener('click', () => {
+        isBalHidden = !isBalHidden;
+        heroCardBal.textContent = isBalHidden ? '₹ ••••••••' : '₹ 4,50,000';
+        heroEyeBtn.textContent = isBalHidden ? '🔒' : '👁️';
+      });
+    }
+
+    // Particle Canvas on Signature Orange Hero
+    (function initHeroParticleCanvas() {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h;
+      let particles = [];
+      const count = 32;
+
+      function resize() {
+        w = canvas.width = canvas.parentElement.offsetWidth;
+        h = canvas.height = canvas.parentElement.offsetHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 2 + 1,
+          color: Math.random() > 0.4 ? 'rgba(255, 255, 255, ' : 'rgba(251, 160, 75, ',
+          alpha: Math.random() * 0.4 + 0.15
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p1 = particles[i];
+          p1.x += p1.vx;
+          p1.y += p1.vy;
+          if (p1.x < 0 || p1.x > w) p1.vx *= -1;
+          if (p1.y < 0 || p1.y > h) p1.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p1.x, p1.y, p1.r, 0, Math.PI * 2);
+          ctx.fillStyle = p1.color + p1.alpha + ')';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.7;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      requestAnimationFrame(draw);
+    })();
+  </script>
+</body>
+
+</html>
